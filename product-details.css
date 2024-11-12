@@ -1,0 +1,140 @@
+/* Consistent container styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #0056D2;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: fixed;
+            width: 100%; */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid white;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar .cart {
+    position: relative;
+}
+
+.navbar .cart i {
+    font-size: 20px;
+}
+
+.navbar .cart .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #FF0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+/* Product details container */
+.product-details-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f5f5f5;
+}
+
+.product-details {
+    max-width: 800px;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+}
+
+.product-details img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.product-info .price {
+    font-size: 1.5rem;
+    color: #f44336;
+    margin: 0.5rem 0 1rem;
+}
+
+.product-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Quantity and add-to-cart styling */
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.quantity button {
+    font-size: 1.2rem;
+    padding: 0.3rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 0.5rem;
+}
+
+.quantity span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#add-to-cart {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #0056D2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-to-cart:hover {
+    background-color: #011d43;
+}

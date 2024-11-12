@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            background-color: #0056D2;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* position: fixed;
+            width: 100%; */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar .cart {
+            position: relative;
+        }
+
+        .navbar .cart i {
+            font-size: 20px;
+        }
+
+        .navbar .cart .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: #FF0000;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .container h1::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #007bff;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: calc(50% - 10px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: calc(50% - 10px);
+        }
+
+        .form-group input[type="text"]:nth-child(2),
+        .form-group input[type="email"]:nth-child(2),
+        .form-group input[type="tel"]:nth-child(2) {
+            margin-left: 20px;
+        }
+
+        .form-group select {
+            width: calc(50% - 10px);
+        }
+
+        .form-group select:nth-child(2) {
+            margin-left: 20px;
+        }
+
+        .form-group .optional {
+            font-weight: normal;
+            color: #888;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .sidebar {
+            float: right;
+            width: 300px;
+            margin-left: 20px;
+        }
+
+        .sidebar .box {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .box h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .box .btn {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .pricing-summary {
+            font-size: 16px;
+        }
+
+        .pricing-summary .total {
+            font-weight: bold;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .cart-item-details p {
+            margin: 5px 0;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-actions .quantity {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            VENIA
+        </div>
+        <div class="links">
+            <a href="/index.html"> Home </a>
+            <a href="/women.html"> Women </a>
+            <a href="/men.html"> Men </a>
+            <a href="/electronics.html"> Electronics </a>
+            <a href="/jewellery.html"> Jewellery </a>
+        </div>
+        <a href="/cart.html">
+            <div class="cart">
+                <i class="fas fa-shopping-cart">
+                </i>
+                <span class="badge" id="cart-count"> 0 </span>
+            </div>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Checkout</h1>
+
+        <div id="cart-items-container"></div>
+
+        <h2>Guest Checkout</h2>
+        <p>We'll use these details to keep you informed on your delivery.</p>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="abc@xyz.com">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(222) 222-2222">
+        </div>
+        <h2>1. Shipping Information</h2>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country">
+                <option>United States</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name">
+        </div>
+        <div class="form-group">
+            <label for="address-1">Street Address</label>
+            <input type="text" id="address-1">
+            <label for="address-2">Street Address 2 <span class="optional">Optional</span></label>
+            <input type="text" id="address-2">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" value="Altadena">
+            <label for="state">State</label>
+            <select id="state">
+                <option>California</option>
+            </select>
+            <label for="zip">ZIP</label>
+            <input type="text" id="zip" value="91001">
+        </div>
+        <a href="shipping.html" class="btn">CONTINUE TO SHIPPING METHOD</a>
+    </div>
+    <div class="sidebar">
+        <div class="box pricing-summary">
+            <h2>Pricing Summary</h2>
+            <p>Subtotal <span id="summary-subtotal">$0.00</span></p>
+            <p>Coupon <span id="summary-coupon">-$0.00</span></p>
+            <p>Estimated tax <span id="summary-tax">$0.00</span></p>
+            <p class="total">Estimated Total <span id="summary-total">$0.00</span></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            renderCartItems();
+            updatePricingSummary();
+
+            function renderCartItems() {
+                const cartContainer = document.getElementById("cart-items-container");
+                cartContainer.innerHTML = "";
+                cartItems.forEach((item, index) => {
+                    const itemElement = document.createElement("div");
+                    itemElement.classList.add("cart-item");
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <p><strong>${item.name}</strong></p>
+                            <p>$${item.price.toFixed(2)}</p>
+                            <p>Quantity: ${item.quantity}</p>
+                        </div>
+                    `;
+                    cartContainer.appendChild(itemElement);
+                });
+            }
+
+            function updatePricingSummary() {
+                let subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+                let tax = subtotal * 0.08;
+                let total = subtotal + tax;
+                document.getElementById("summary-subtotal").textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById("summary-tax").textContent = `$${tax.toFixed(2)}`;
+                document.getElementById("summary-total").textContent = `$${total.toFixed(2)}`;
+            }
+        });
+
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    </script>
+</body>
+
+</html>

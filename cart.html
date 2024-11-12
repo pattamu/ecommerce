@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Bag</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #0056D2;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* position: fixed;
+            width: 100%; */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar .cart {
+            position: relative;
+        }
+
+        .navbar .cart i {
+            font-size: 20px;
+        }
+
+        .navbar .cart .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: #FF0000;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .cart-item-details p {
+            margin: 5px 0;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-actions button {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .cart-item-actions .quantity {
+            width: 30px;
+            text-align: center;
+        }
+
+        .summary {
+            width: 300px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+        }
+
+        .summary h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .summary .total {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .summary .checkout-btn,
+        .summary .paypal-btn {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .checkout-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .paypal-btn {
+            background-color: #ffc439;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            VENIA
+        </div>
+        <div class="links">
+            <a href="/index.html"> Home </a>
+            <a href="/women.html"> Women </a>
+            <a href="/men.html"> Men </a>
+            <a href="/electronics.html"> Electronics </a>
+            <a href="/jewellery.html"> Jewellery </a>
+        </div>
+        <a href="/cart.html">
+            <div class="cart">
+                <i class="fas fa-shopping-cart">
+                </i>
+                <span class="badge" id="cart-count"> 0 </span>
+            </div>
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="cart-items">
+            <div class="title">Your Shopping Bag</div>
+            <div id="cart-items-container"></div>
+        </div>
+        <div class="summary">
+            <h3>Pricing Summary</h3>
+            <p>Subtotal <span id="subtotal">$0.00</span></p>
+            <p>Coupon <span id="discount">-$0.00</span></p>
+            <p>Estimated tax <span id="tax">$0.00</span></p>
+            <p class="total">Estimated Total <span id="total">$0.00</span></p>
+            <a href="checkout.html" class="checkout-btn">CHECKOUT </a>
+            <!-- <div class="checkout-btn">CHECKOUT</div> -->
+            <div class="paypal-btn">PayPal</div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+
+</html>

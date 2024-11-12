@@ -1,0 +1,164 @@
+<html>
+
+</html>
+
+<head>
+    <title>
+        Jewellery
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            VENIA
+        </div>
+        <div class="links">
+            <a href="/index.html">
+                Home
+            </a>
+            <a href="/women.html">
+                Women
+            </a>
+            <a href="/men.html">
+                Men
+            </a>
+            <a href="/electronics.html">
+                Electronics
+            </a>
+            <a href="/jewellery.html">
+                Jewellery
+            </a>
+        </div>
+        <a href="/cart.html">
+            <div class="cart">
+                <i class="fas fa-shopping-cart">
+                </i>
+                <span class="badge" id="cart-count">
+                    0
+                </span>
+            </div>
+        </a>
+    </div>
+    <div class="hero">
+        <div class="text">
+            <h1>
+                Shop for JEWELLERY
+            </h1>
+        </div>
+        <div class="image">
+            <img alt="jewellery" height="400"
+                src="https://media.istockphoto.com/id/1277517088/photo/fancy-designer-antique-golden-bracelets-for-woman-fashion.jpg?s=1024x1024&w=is&k=20&c=n0sFrISNoXP-M8uhw2VdTbKnw9vu_BVnm5EzMYuz5cA="
+                width="600" />
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="breadcrumbs">
+            <a href="#">
+                Clothing
+            </a>
+            /
+            <a href="#">
+                Women's
+            </a>
+            /
+            <a href="#">
+                Outerwear
+            </a>
+        </div>
+        <div class="results">
+            <div class="filters">
+                <h3>
+                    Filters
+                </h3>
+                <h4>
+                    Categories
+                </h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" />
+                        Jewellery
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Electronics
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Men's Clothing
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Women's Clothing
+                    </li>
+                </ul>
+            </div>
+            <div class="products" id="product-list">
+                <div class="results-header">
+                    <span>
+                        38 Results
+                    </span>
+                    <select>
+                        <option>
+                            Sort by Price
+                        </option>
+                    </select>
+                </div>
+                <!-- <div class="product">
+                    <img alt="Red T-shirt" height="300"
+                        src="https://storage.googleapis.com/a1aa/image/wcXWbpPYukJCE1hE9JSbq9Ts63Q7h0eyGKeOnyf0vAbPFSgnA.jpg"
+                        width="200" />
+                    <h4>
+                        Varsity Eco-friendly Jacket
+                    </h4>
+                    <p class="price">
+                        $110.00
+                    </p>
+                    <i class="far fa-heart wishlist">
+                    </i>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch products data from the API and populate products grid
+        fetch('https://fakestoreapi.com/products')
+            .then(response => response.json())
+            .then(products => {
+                const productList = document.getElementById('product-list');
+                // Filter products by "men's clothing" category
+                const jewelery = products.filter(product => product.category === "jewelery");
+
+                jewelery.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product';
+
+                    productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" width="100" height="150">
+            <h4>${product.title}</h4>
+            <p class="price">$${product.price.toFixed(2)}</p>
+            <i class="far fa-heart wishlist"></i>
+          `;
+                    // Add click event to navigate to product details page
+                    productCard.addEventListener('click', () => {
+                        window.location.href = `product-details.html?id=${product.id}`;
+                    });
+
+                    productList.appendChild(productCard);
+                });
+            })
+            .catch(error => console.error('Error fetching products:', error));
+
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    </script>
+
+</body>
+
+
+</html>
