@@ -1,0 +1,379 @@
+<html>
+
+<head>
+    <title>
+        Guest Checkout
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .cart {
+            position: relative;
+        }
+
+        .navbar .cart .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .title span {
+            display: block;
+            border-bottom: 3px solid #007bff;
+            width: 50px;
+            margin: 10px auto;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .section .content .info {
+            flex: 1;
+        }
+
+        .section .content .edit {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .pricing-summary {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .pricing-summary h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .pricing-summary .item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .pricing-summary .total {
+            font-weight: bold;
+        }
+
+        .order-items {
+            display: flex;
+            gap: 20px;
+        }
+
+        .order-item {
+            text-align: center;
+        }
+
+        .order-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            VENIA
+        </div>
+        <div class="links">
+            <a href="index.html"> Home </a>
+            <a href="women.html"> Women </a>
+            <a href="men.html"> Men </a>
+            <a href="electronics.html"> Electronics </a>
+            <a href="jewellery.html"> Jewellery </a>
+        </div>
+        <a href="cart.html">
+            <div class="cart">
+                <i class="fas fa-shopping-cart">
+                </i>
+                <span class="badge" id="cart-count"> 0 </span>
+            </div>
+        </a>
+    </div>
+    <div class="container">
+        <div class="title">
+            Checkout
+            <span>
+            </span>
+        </div>
+        <div class="section">
+            <h2>
+                Shipping Information
+            </h2>
+            <div class="content">
+                <div class="info">
+                    <p>
+                        q_farhan@gmail.com
+                    </p>
+                    <p>
+                        +1 (555) 229-3367
+                    </p>
+                    <p>
+                        Qadim Farhan
+                    </p>
+                    <p>
+                        1098 Wapello Street
+                    </p>
+                    <p>
+                        Altadena, California 91001
+                    </p>
+                    <p>
+                        United States
+                    </p>
+                </div>
+                <div class="edit">
+                    <i class="fas fa-pen">
+                    </i>
+                    Edit
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>
+                Shipping Method
+            </h2>
+            <div class="content">
+                <div class="info">
+                    <p>
+                        Standard Shipping
+                    </p>
+                    <p>
+                        Est. delivery in 4 - 8 business days
+                    </p>
+                    <p>
+                        FREE
+                    </p>
+                </div>
+                <div class="edit">
+                    <i class="fas fa-pen">
+                    </i>
+                    Edit
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>
+                Payment Information
+            </h2>
+            <div class="content">
+                <div class="info">
+                    <p>
+                        Credit Card
+                    </p>
+                    <p>
+                        Visa ending in 4567
+                    </p>
+                </div>
+                <div class="edit">
+                    <i class="fas fa-pen">
+                    </i>
+                    Edit
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>
+                3 items in your order
+            </h2>
+            <div class="order-items">
+                <div class="order-item">
+                    <img alt="Electric Leggings" height="100"
+                        src="https://storage.googleapis.com/a1aa/image/6JtiBJ83IXqdCl5vVHlBaWL0CJ0pEYEVsZTfpU3450ieSOwTA.jpg"
+                        width="100" />
+                    <p>
+                        Electric Leggings
+                    </p>
+                    <p>
+                        Size: Medium
+                    </p>
+                    <p>
+                        Color: Storm
+                    </p>
+                    <p>
+                        Quantity: 2
+                    </p>
+                </div>
+                <div class="order-item">
+                    <img alt="Signature Sports Bra" height="100"
+                        src="https://storage.googleapis.com/a1aa/image/VXXMi7ee7mg0GEz3NfJ4fRsC5tu3PglsGckGudEdmzvxL5APB.jpg"
+                        width="100" />
+                    <p>
+                        Signature Sports Bra
+                    </p>
+                    <p>
+                        Size: Medium
+                    </p>
+                    <p>
+                        Color: Red
+                    </p>
+                    <p>
+                        Quantity: 1
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="pricing-summary">
+            <h2>
+                Pricing Summary
+            </h2>
+            <div class="item">
+                <span>
+                    Subtotal
+                </span>
+                <span>
+                    $ 388.00
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    Coupon
+                </span>
+                <span>
+                    - $ 77.60
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    Gift Card
+                </span>
+                <span>
+                    - $ 100.00
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    Tax
+                </span>
+                <span>
+                    $ 23.28
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    Shipping
+                </span>
+                <span>
+                    FREE
+                </span>
+            </div>
+            <div class="item total">
+                <span>
+                    Order Total
+                </span>
+                <span>
+                    $ 233.68
+                </span>
+            </div>
+        </div>
+    </div>
+    <a href="success.html" class="btn">PLACE ORDER</a>
+
+    <div class="footer"
+        style="background-color: #fff; color: #000; text-align: center; padding: 20px 0; font-size: 14px;">
+        <div class="logo" style="font-size: 24px; font-weight: bold; letter-spacing: 5px; margin-bottom: 10px;">VENIA
+        </div>
+        <div class="address" style="margin-bottom: 10px;">© Company Name Address Ave, City Name, State ZIP</div>
+        <div class="links">
+            <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+        </div>
+    </div>
+
+
+    <script>
+
+    </script>
+</body>
+
+</html>
