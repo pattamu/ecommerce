@@ -135,6 +135,7 @@ body {
 
 .results .filters ul li input {
     margin-right: 10px;
+    cursor: pointer
 }
 
 .results .products {
@@ -153,6 +154,18 @@ body {
     width: 30%;
     margin: 0 1.5% 20px;
     text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.results .products .product:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.results .products .product:hover .product-name {
+    text-decoration: line-through;
 }
 
 .results .products .product img {
@@ -176,5 +189,9 @@ body {
 
 .results .products .product .wishlist {
     color: #007bff;
+    cursor: pointer;
+}
+
+#sort-options:hover {
     cursor: pointer;
 }

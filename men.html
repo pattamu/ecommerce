@@ -95,7 +95,7 @@
                     </select>
                 </div>
                 <!-- <div class="product">
-                    <img alt="Red T-shirt" height="300"
+                    <img alt="Red T-shirt" 
                         src="https://storage.googleapis.com/a1aa/image/wcXWbpPYukJCE1hE9JSbq9Ts63Q7h0eyGKeOnyf0vAbPFSgnA.jpg"
                         width="200" />
                     <h4>
@@ -141,7 +141,7 @@
                         productCard.className = 'product';
 
                         productCard.innerHTML = `
-                        <img src="${product.image}" alt="${product.title}" width="100" height="150">
+                        <img src="${product.image}" alt="${product.title}" style="width: 100px; height: 150px;">
                         <h4>${product.title}</h4>
                         <p class="price">$${product.price.toFixed(2)}</p>
                         <i class="far fa-heart wishlist"></i>
