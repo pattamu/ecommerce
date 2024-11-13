@@ -30,16 +30,15 @@
             </div>
         </a>
     </div>
-    <div class="hero">
+    <div class="hero" style="height: 200px;">
         <div class="text">
             <h1>
                 Shop for MEN
             </h1>
         </div>
         <div class="image">
-            <img alt="Three men wearing stylish clothing" height="400"
-                src="https://img.freepik.com/premium-photo/portrait-confident-young-man_274222-11509.jpg?w=900"
-                width="600" />
+            <img alt="Three men wearing stylish clothing" style="height: 250px; width: 500px;"
+                src="https://img.freepik.com/premium-photo/portrait-confident-young-man_274222-11509.jpg?w=900" />
         </div>
     </div>
 
@@ -65,7 +64,7 @@
                 <h4>
                     Categories
                 </h4>
-                <ul>
+                <ul id="categories">
                     <li>
                         <input type="checkbox" />
                         Jewellery
@@ -179,6 +178,8 @@
         document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
     </script>
+
+    <script src="catagory.js"></script>
 
 </body>
 
