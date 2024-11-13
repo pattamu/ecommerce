@@ -125,27 +125,36 @@ body {
     margin: 5px;
 }
 
-/* Quantity and add-to-cart styling */
 .quantity {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+    justify-content: flex-start;
+    gap: 5px;
 }
 
-.quantity button {
-    font-size: 1.2rem;
-    padding: 0.1rem 0.5rem;
-    background-color: transparent;
-    color: black;
-    border: 1px solid black;
+.quantity button,
+.quantity span {
+    width: 25px;
+    /* Set equal width for buttons and quantity */
+    height: 25px;
+    /* Set equal height for buttons and quantity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
     cursor: pointer;
-    border-radius: 2px;
-    margin: 0 0.5rem;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+}
+
+.quantity button:hover,
+.quantity span:hover {
+    background-color: #e0e0e0;
 }
 
 .quantity span {
-    font-size: 1.2rem;
-    font-weight: bold;
+    text-align: center;
+    padding: 0;
 }
 
 #add-to-cart {

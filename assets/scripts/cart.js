@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>Your cart is empty. <a href="index.html">Click here to go to the home page</a>.</p>
                     </div>
                 `;
-            document.getElementById("subtotal").textContent = "$0.00";
-            document.getElementById("total").textContent = "$0.00";
-            document.getElementById("tax").textContent = "$0.00";
+            // document.getElementById("subtotal").textContent = "$0.00";
+            // document.getElementById("total").textContent = "$0.00";
+            // document.getElementById("tax").textContent = "$0.00";
             return;
         }
 
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemElement = document.createElement("div");
             itemElement.classList.add("cart-item");
             itemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <div class="cart-item-details">
-                        <p><strong>${item.name}</strong></p>
+                    <img class="product-details" data-id=${item.id} src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details product-details" data-id=${item.id}>
+                        <p><strong>${item.title}</strong></p>
                         <p>$${item.price.toFixed(2)}</p>
                     </div>
                     <div class="cart-item-actions">
@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `;
             cartContainer.appendChild(itemElement);
+
+            document.querySelectorAll(".product-details").forEach(item => {
+                item.addEventListener('click', () => {
+                    const productId = item.getAttribute('data-id'); // Ensure each item has a data-id with the product ID
+                    window.location.href = `product-details.html?id=${productId}`;
+                });
+            });
         });
 
         document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;

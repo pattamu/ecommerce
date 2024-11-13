@@ -50,6 +50,7 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
             }
 
             localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById("cart-count").textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
             alert(`${product.title} has been added to the cart.`);
         });
     })
@@ -61,4 +62,3 @@ function toggleDescription() {
     const button = descriptionContainer.querySelector('.show-more-btn');
     button.textContent = descriptionContainer.classList.contains('expanded') ? 'Show Less' : 'Show More';
 }
-
