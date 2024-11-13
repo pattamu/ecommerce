@@ -149,13 +149,32 @@
         }
 
         .checkout-btn {
-            background-color: #007bff;
+            text-decoration: none;
             color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            width: 280px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .paypal-btn {
             background-color: #ffc439;
             color: black;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .paypal-btn:hover {
+            background-color: #b58412;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -193,7 +212,6 @@
             <p>Estimated tax <span id="tax">$0.00</span></p>
             <p class="total">Estimated Total <span id="total">$0.00</span></p>
             <a href="checkout.html" class="checkout-btn">CHECKOUT </a>
-            <!-- <div class="checkout-btn">CHECKOUT</div> -->
             <div class="paypal-btn">PayPal</div>
         </div>
     </div>
