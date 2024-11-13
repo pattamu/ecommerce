@@ -37,8 +37,7 @@
             </h1>
         </div>
         <div class="image">
-            <img alt="ELECTRONICS" height="400"
-                src="https://www.shutterstock.com/shutterstock/photos/2048419898/display_1500/stock-photo--d-variety-of-home-appliances-concept-design-2048419898.jpg"
+            <img alt="ELECTRONICS" height="400" src="https://images.pexels.com/photos/792345/pexels-photo-792345.jpeg"
                 width="600" />
         </div>
     </div>
@@ -46,15 +45,15 @@
     <div class="content">
         <div class="breadcrumbs">
             <a href="#">
-                Clothing
+                Electronics
             </a>
             /
             <a href="#">
-                Women's
+                Gadgets
             </a>
             /
             <a href="#">
-                Outerwear
+                Latest
             </a>
         </div>
         <div class="results">
@@ -86,13 +85,13 @@
             </div>
             <div class="products" id="product-list">
                 <div class="results-header">
-                    <span>
-                        38 Results
+                    <span id="results-count">
+                        0 Results
                     </span>
-                    <select>
-                        <option>
-                            Sort by Price
-                        </option>
+                    <select id="sort-options">
+                        <option value="">Sort by Price</option>
+                        <option value="low-to-high">Low to High</option>
+                        <option value="high-to-low">High to Low</option>
                     </select>
                 </div>
                 <!-- <div class="product">
@@ -132,23 +131,46 @@
                 // Filter products by "men's clothing" category
                 const electronics = products.filter(product => product.category === "electronics");
 
-                electronics.forEach(product => {
-                    const productCard = document.createElement('div');
-                    productCard.className = 'product';
+                document.getElementById('results-count').textContent = `${electronics.length} Results`;
 
-                    productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" width="100" height="150">
-            <h4>${product.title}</h4>
-            <p class="price">$${product.price.toFixed(2)}</p>
-            <i class="far fa-heart wishlist"></i>
-          `;
+                displayProducts(electronics);
 
-                    // Add click event to navigate to product details page
-                    productCard.addEventListener('click', () => {
-                        window.location.href = `product-details.html?id=${product.id}`;
+                function displayProducts(electronics) {
+                    electronics.forEach(product => {
+                        const productCard = document.createElement('div');
+                        productCard.className = 'product';
+
+                        productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.title}" width="100" height="150">
+                        <h4>${product.title}</h4>
+                        <p class="price">$${product.price.toFixed(2)}</p>
+                        <i class="far fa-heart wishlist"></i>
+                    `;
+                        productList.appendChild(productCard);
+
+                        // Add click event to navigate to product details page
+                        productCard.addEventListener('click', () => {
+                            window.location.href = `product-details.html?id=${product.id}`;
+                        });
                     });
-                    productList.appendChild(productCard);
-                });
+                }
+
+                document.getElementById('sort-options').addEventListener('change', sortProducts);
+                // Function to sort products
+                function sortProducts(event) {
+                    const sortOption = event.target.value;
+                    if (sortOption === 'low-to-high') {
+                        let data = electronics.sort((a, b) => a.price - b.price);
+                        console.log(data)
+                    } else if (sortOption === 'high-to-low') {
+                        let data = electronics.sort((a, b) => b.price - a.price);
+                        console.log(data)
+                    }
+                    // Select all product elements and remove them
+                    const productElements = document.querySelectorAll('.product');
+                    productElements.forEach(product => product.remove());
+                    displayProducts(electronics); // Re-render products with sorted data
+                }
             })
             .catch(error => console.error('Error fetching products:', error));
 
