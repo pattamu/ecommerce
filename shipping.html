@@ -6,126 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guest Checkout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        .navbar {
-            background-color: #007bff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline;
-        }
-
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .navbar .cart {
-            position: relative;
-        }
-
-        .navbar .cart .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .container h1::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #007bff;
-            margin: 10px auto;
-        }
-
-        .shipping-info,
-        .pricing-summary {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .shipping-info h2,
-        .pricing-summary h2 {
-            margin-top: 0;
-        }
-
-        .shipping-info .edit {
-            float: right;
-            color: #007bff;
-            cursor: pointer;
-        }
-
-        .shipping-method {
-            margin-bottom: 20px;
-        }
-
-        .shipping-method label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .shipping-method input {
-            margin-right: 10px;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/shipping.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="navigateToCategoryPage('index')">
             VENIA
         </div>
         <div class="links">
@@ -160,7 +47,6 @@
                 FREE</label>
             <label><input type="radio" name="shipping"> Express Delivery (2-5 business days via USPS) $17.95</label>
             <label><input type="radio" name="shipping"> Next Day Delivery (Next business days via FedEx) $53.61</label>
-            <a href="payment.html" class="btn">CONTINUE TO PAYMENT</a>
         </div>
         <div class="pricing-summary">
             <h2>Pricing Summary</h2>
@@ -170,6 +56,7 @@
             <p>Tax <span style="float: right;" id="tax">$ 23.28</span></p>
             <p>Estimated shipping <span style="float: right;" id="shipping">FREE</span></p>
             <h3>Estimated Total <span style="float: right;" id="total">$ 233.68</span></h3>
+            <a href="payment.html" class="btn">CONTINUE TO PAYMENT</a>
         </div>
     </div>
 
@@ -184,55 +71,8 @@
         </div>
     </div>
 
-    <script>
-        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-        // Retrieve saved form data from local storage
-        const savedFormData = JSON.parse(localStorage.getItem("checkoutForm"));
-        if (savedFormData) {
-            // Populate the shipping information section with the saved data
-            document.getElementById("shipping-email").textContent = savedFormData.email || "";
-            document.getElementById("shipping-phone").textContent = savedFormData.phone || "";
-            document.getElementById("shipping-name").textContent = `${savedFormData.firstName || ""} ${savedFormData.lastName || ""}`;
-            document.getElementById("shipping-address").textContent = `${savedFormData.streetAddress || ""} ${savedFormData.streetAddress2 || ""}`;
-            document.getElementById("shipping-city").textContent = `${savedFormData.city || ""}, ${savedFormData.state || ""} ${savedFormData.zip || ""}`;
-            document.getElementById("shipping-country").textContent = savedFormData.country || "";
-        }
-
-        // Load pricing summary from localStorage
-        const pricingData = JSON.parse(localStorage.getItem("pricingSummary"));
-        if (pricingData) {
-            document.getElementById("subtotal").textContent = `$ ${pricingData.subtotal.toFixed(2) || "0.00"}`;
-            document.getElementById("coupon").textContent = `- $ ${pricingData?.coupon.toFixed(2) || "0.00"}`;
-            document.getElementById("gift-card").textContent = `- $ ${pricingData?.giftCard.toFixed(2) || "0.00"}`;
-            document.getElementById("tax").textContent = `$ ${pricingData?.tax.toFixed(2) || "0.00"}`;
-            document.getElementById("shipping").textContent = pricingData?.shipping.toFixed(2) || "FREE";
-            document.getElementById("total").textContent = `$ ${pricingData?.total.toFixed(2) || "0.00"}`;
-        }
-
-        // Function to handle shipping option change
-        function handleShippingChange(cost, label) {
-            pricingData.shipping = label;
-            pricingData.total = pricingData.subtotal - pricingData.coupon - pricingData.giftCard + pricingData.tax + cost;
-            localStorage.setItem("pricingSummary", JSON.stringify(pricingData));
-            updatePricingSummary();
-        }
-
-        // Event listeners for shipping method radio buttons
-        document.querySelectorAll("input[name='shipping']").forEach((radio, index) => {
-            radio.addEventListener("change", () => {
-                if (index === 0) {
-                    handleShippingChange(shippingCosts.standard, "FREE");
-                } else if (index === 1) {
-                    handleShippingChange(shippingCosts.express, "$17.95");
-                } else if (index === 2) {
-                    handleShippingChange(shippingCosts.nextDay, "$53.61");
-                }
-            });
-        });
-
-    </script>
+    <script src="assets/scripts/default.js"></script>
+    <script src="assets/scripts/shipping.js"></script>
 </body>
 
 </html>

@@ -3,168 +3,13 @@
 <head>
     <title>Guest Checkout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        .navbar {
-            background-color: #007bff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline;
-        }
-
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .navbar .cart {
-            position: relative;
-        }
-
-        .navbar .cart .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .main-content {
-            width: 70%;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar {
-            width: 25%;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .section p {
-            margin: 5px 0;
-        }
-
-        .edit-link {
-            float: right;
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .edit-link:hover {
-            text-decoration: underline;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .form-group input[type="checkbox"] {
-            margin-right: 5px;
-        }
-
-        .form-group input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        .form-group .cvv-info {
-            display: inline-block;
-            margin-left: 10px;
-            color: #007bff;
-            cursor: pointer;
-        }
-
-        .pricing-summary {
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-        }
-
-        .pricing-summary p {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-        }
-
-        .pricing-summary p.total {
-            font-weight: bold;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="navigateToCategoryPage('index')">
             VENIA
         </div>
         <div class="links">
@@ -246,42 +91,21 @@
             </div>
             <a href="review.html" class="btn">CONTINUE TO PAYMENT</a>
         </div>
-
-        <div class="footer"
-            style="background-color: #fff; color: #000; text-align: center; padding: 20px 0; font-size: 14px;">
-            <div class="logo" style="font-size: 24px; font-weight: bold; letter-spacing: 5px; margin-bottom: 10px;">
-                VENIA
-            </div>
-            <div class="address" style="margin-bottom: 10px;">© Company Name Address Ave, City Name, State ZIP</div>
-            <div class="links">
-                <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Terms of Use</a>
-                <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
-            </div>
+    </div>
+    <div class="footer"
+        style="background-color: #fff; color: #000; text-align: center; padding: 20px 0; font-size: 14px;">
+        <div class="logo" style="font-size: 24px; font-weight: bold; letter-spacing: 5px; margin-bottom: 10px;">
+            VENIA
+        </div>
+        <div class="address" style="margin-bottom: 10px;">© Company Name Address Ave, City Name, State ZIP</div>
+        <div class="links">
+            <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
         </div>
     </div>
 
-    <script>
-        // Retrieve saved form data from local storage
-        const savedFormData = JSON.parse(localStorage.getItem("checkoutForm"));
-        if (savedFormData) {
-            // Populate the shipping information section with the saved data
-            document.getElementById("shipping-email").textContent = savedFormData.email || "";
-            document.getElementById("shipping-phone").textContent = savedFormData.phone || "";
-            document.getElementById("shipping-name").textContent = `${savedFormData.firstName || ""} ${savedFormData.lastName || ""}`;
-            document.getElementById("shipping-address").textContent = `${savedFormData.streetAddress || ""} ${savedFormData.streetAddress2 || ""}`;
-            document.getElementById("shipping-city").textContent = `${savedFormData.city || ""}, ${savedFormData.state || ""} ${savedFormData.zip || ""}`;
-            document.getElementById("shipping-country").textContent = savedFormData.country || "";
-        }
-        const pricingData = JSON.parse(localStorage.getItem("pricingSummary"));
-        if (pricingData) {
-            document.getElementById("subtotal").textContent = `$ ${pricingData?.subtotal.toFixed(2) || "0.00"}`;
-            document.getElementById("coupon").textContent = `- $ ${pricingData?.coupon?.toFixed(2) || "0.00"}`;
-            document.getElementById("gift-card").textContent = `- $ ${pricingData?.giftCard?.toFixed(2) || "0.00"}`;
-            document.getElementById("tax").textContent = `$ ${pricingData?.tax?.toFixed(2) || "0.00"}`;
-            document.getElementById("shipping").textContent = pricingData?.shipping?.toFixed(2) || "FREE";
-            document.getElementById("total").textContent = `$ ${pricingData?.total?.toFixed(2) || "0.00"}`;
-        }
-    </script>
+    <script src="assets/scripts/default.js"></script>
+    <script src="assets/scripts/payment.js"></script>
 </body>
 
 </html>

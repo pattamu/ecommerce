@@ -54,3 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderCartItems();
 });
+
+function navigateToCategoryPage(category) {
+    window.location.href = `${category}.html`;
+}

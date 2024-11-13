@@ -6,153 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        .navbar {
-            background-color: #0056D2;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* position: fixed;
-            width: 100%; */
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-        }
-
-        .navbar a:hover {
-            border-bottom: 2px solid white;
-        }
-
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .navbar .cart {
-            position: relative;
-        }
-
-        .navbar .cart i {
-            font-size: 20px;
-        }
-
-        .navbar .cart .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: #FF0000;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-        }
-
-        .checkout-container {
-            display: flex;
-            max-width: 1000px;
-            width: 100%;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        /* Left section */
-        .form-section {
-            flex: 2;
-            margin-right: 20px;
-        }
-
-        .form-section h2 {
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .contact-info,
-        .shipping-info {
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        /* Right section */
-        .summary-section {
-            flex: 1;
-            padding: 20px;
-            background-color: #f8f8f8;
-            border-radius: 5px;
-        }
-
-        .summary-section h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .summary-item h3 {
-            font-size: 16px;
-            font-weight: normal;
-        }
-
-        .summary-total {
-            font-weight: bold;
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="navigateToCategoryPage('index')">
             VENIA
         </div>
         <div class="links">
@@ -272,57 +132,8 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Fetch cart items from local storage
-            const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-            // Update cart count
-            document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-            // Update pricing summary based on localStorage cart items
-            updatePricingSummary(cartItems);
-
-            function updatePricingSummary(items) {
-                let subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-                let tax = subtotal * 0.08; // 8% tax
-                let total = subtotal + tax;
-
-                // Set the text content for the summary elements
-                document.getElementById("summary-subtotal").textContent = `$${subtotal.toFixed(2)}`;
-                document.getElementById("summary-tax").textContent = `$${tax.toFixed(2)}`;
-                document.getElementById("summary-total").textContent = `$${total.toFixed(2)}`;
-
-                localStorage.setItem("pricingSummary", JSON.stringify({ subtotal, tax, total }));
-            }
-        });
-
-        function saveFormDetails() {
-            const formData = {
-                email: document.querySelector("input[type='email']").value,
-                phoneNumber: document.querySelector("input[type='tel']").value,
-                country: document.querySelector("select").value,
-                firstName: document.querySelector("input[placeholder='First Name']").value,
-                lastName: document.querySelector("input[placeholder='Last Name']").value,
-                streetAddress: document.querySelector("input[placeholder='Street Address']").value,
-                streetAddress2: document.querySelector("input[placeholder='Street Address 2']").value,
-                city: document.querySelector("input[placeholder='City']").value,
-                state: document.querySelector("input[placeholder='State']").value,
-                zip: document.querySelector("input[placeholder='ZIP']").value
-            };
-            localStorage.setItem("checkoutForm", JSON.stringify(formData));
-        }
-
-        document.querySelector(".btn").addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent the default form submission
-            saveFormDetails();
-            window.location.href = "shipping.html"; // Redirect to shipping.html
-        });
-
-        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-    </script>
+    <script src="assets/scripts/default.js"></script>
+    <script src="assets/scripts/checkout.js"></script>
 </body>
 
 </html>

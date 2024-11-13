@@ -6,145 +6,13 @@
     </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .navbar {
-            background-color: #0056D2;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* position: fixed;
-            width: 100%; */
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-        }
-
-        .navbar a:hover {
-            border-bottom: 2px solid white;
-        }
-
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .navbar .cart {
-            position: relative;
-        }
-
-        .navbar .cart i {
-            font-size: 20px;
-        }
-
-        .navbar .cart .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: #FF0000;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-        }
-
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px 20px;
-            background-color: #F5F5F5;
-        }
-
-        .hero .text {
-            max-width: 50%;
-        }
-
-        .hero .text h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin: 0 0 20px;
-        }
-
-        .hero .text p {
-            font-size: 16px;
-            margin: 0 0 20px;
-        }
-
-        .hero .text button {
-            background-color: #0056D2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .hero .image {
-            max-width: 40%;
-        }
-
-        .hero .image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .categories {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            background-color: white;
-        }
-
-        .category {
-            text-align: center;
-            width: 20%;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .category:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-        }
-
-        .category img {
-            width: 100%;
-            height: auto;
-        }
-
-        .category .info {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            position: relative;
-            top: -40px;
-        }
-
-        .category .info h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .category .info p {
-            margin: 5px 0 0;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="navigateToCategoryPage('index')">
             VENIA
         </div>
         <div class="links">
@@ -245,14 +113,8 @@
         </div>
     </div>
 
-    <script>
-        function navigateToCategoryPage(category) {
-            window.location.href = `${category}.html`;
-        }
-        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    <script src="assets/scripts/default.js"></script>
 
-    </script>
 </body>
 
 </html>

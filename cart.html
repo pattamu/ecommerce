@@ -5,183 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Shopping Bag</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        .navbar {
-            background-color: #0056D2;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* position: fixed;
-            width: 100%; */
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-        }
-
-        .navbar a:hover {
-            border-bottom: 2px solid white;
-        }
-
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .navbar .cart {
-            position: relative;
-        }
-
-        .navbar .cart i {
-            font-size: 20px;
-        }
-
-        .navbar .cart .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: #FF0000;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .title {
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-            width: 100%;
-        }
-
-        .cart-items {
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .cart-item img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-        }
-
-        .cart-item-details p {
-            margin: 5px 0;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-        }
-
-        .cart-item-actions button {
-            background-color: #f5f5f5;
-            border: 1px solid #ccc;
-            padding: 5px 10px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .cart-item-actions .quantity {
-            width: 30px;
-            text-align: center;
-        }
-
-        .summary {
-            width: 300px;
-            padding: 20px;
-            background-color: #f5f5f5;
-            border: 1px solid #ccc;
-        }
-
-        .summary h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .summary p {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-        }
-
-        .summary .total {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .summary .checkout-btn,
-        .summary .paypal-btn {
-            text-align: center;
-            margin: 20px 0;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .checkout-btn {
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            width: 280px;
-            display: inline-block;
-            text-align: center;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .checkout-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        .paypal-btn {
-            background-color: #ffc439;
-            color: black;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .paypal-btn:hover {
-            background-color: #b58412;
-            transform: scale(1.05);
-        }
-    </style>
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="navigateToCategoryPage('index')">
             VENIA
         </div>
         <div class="links">
@@ -227,7 +59,7 @@
         </div>
     </div>
 
-    <script src="cart.js"></script>
+    <script src="assets/scripts/cart.js"></script>
 </body>
 
 </html>

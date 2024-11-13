@@ -1,5 +1,3 @@
-// product-details.js
-
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
@@ -53,7 +51,4 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
         });
     })
     .catch(error => console.error('Error fetching product:', error));
-
-let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-document.getElementById("cart-count").textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
