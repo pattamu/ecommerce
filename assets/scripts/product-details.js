@@ -14,7 +14,10 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
                 <div class="product-info">
                     <h2>${product.title}</h2>
                     <p class="price">$${product.price.toFixed(2)}</p>
-                    <p>${product.description}</p>
+                    <div class="product-description">
+                        <p class="description-text">${product.description}</p>
+                        <button class="show-more-btn" onclick="toggleDescription()">Show More</button>
+                    </div>
                     <div class="quantity">
                         <button id="decrease">-</button>
                         <span id="quantity">1</span>
@@ -51,4 +54,11 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
         });
     })
     .catch(error => console.error('Error fetching product:', error));
+
+function toggleDescription() {
+    const descriptionContainer = document.querySelector('.product-description');
+    descriptionContainer.classList.toggle('expanded');
+    const button = descriptionContainer.querySelector('.show-more-btn');
+    button.textContent = descriptionContainer.classList.contains('expanded') ? 'Show Less' : 'Show More';
+}
 
