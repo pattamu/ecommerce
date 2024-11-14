@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest Checkout</title>
+    <title>Checkout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/shipping.css">
@@ -30,45 +27,74 @@
             </div>
         </a>
     </div>
-    <div class="container">
+    <div class="checkout-header">
         <h1>Checkout</h1>
-        <div class="shipping-info">
-            <h2>Shipping Information <span class="edit">Edit</span></h2>
-            <p id="shipping-email">q_farhan@gmail.com</p>
-            <p id="shipping-phone">+1 (555) 229-3367</p>
-            <p id="shipping-name">Qadim Farhan</p>
-            <p id="shipping-address">1098 Wapello Street</p>
-            <p id="shipping-city">Altadena, California 91001</p>
-            <p id="shipping-country">United States</p>
-        </div>
-        <div class="shipping-method">
-            <h2>2. Shipping Method</h2>
-            <label><input type="radio" name="shipping" checked> Standard Shipping (4-8 business days via USPS)
-                FREE</label>
-            <label><input type="radio" name="shipping"> Express Delivery (2-5 business days via USPS) $17.95</label>
-            <label><input type="radio" name="shipping"> Next Day Delivery (Next business days via FedEx) $53.61</label>
-        </div>
-        <div class="pricing-summary">
-            <h2>Pricing Summary</h2>
-            <p>Subtotal <span style="float: right;" id="subtotal">$ 388.00</span></p>
-            <p>Coupon <span style="float: right;" id="coupon">- $ 77.60</span></p>
-            <p>Gift Card <span style="float: right;" id="gift-card">- $ 100.00</span></p>
-            <p>Tax <span style="float: right;" id="tax">$ 23.28</span></p>
-            <p>Estimated shipping <span style="float: right;" id="shipping">FREE</span></p>
-            <h3>Estimated Total <span style="float: right;" id="total">$ 233.68</span></h3>
-            <a href="payment.html" class="btn">CONTINUE TO PAYMENT</a>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="flex-container">
+            <div class="left">
+                <div class="section">
+                    <div class="title">
+                        <h3>Shipping Information</h3>
+                        <a href="#">Edit</a>
+                    </div>
+                    <div class="content">
+                        <p>,</p>
+                        <p>United States</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>2. Shipping Method</h2>
+                    <div class="content">
+                        <div class="radio-group">
+                            <label><input type="radio" name="shipping" value="standard" checked> Standard Shipping (4-8
+                                business days via USPS) FREE</label>
+                            <label><input type="radio" name="shipping" value="express"> Express Delivery (2-5 business
+                                days via USPS) $17.95</label>
+                            <label><input type="radio" name="shipping" value="nextDay"> Next Day Delivery (Next business
+                                days via FedEx) $53.61</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="section">
+                    <h2>Pricing Summary</h2>
+                    <div class="pricing-summary">
+                        <div class="row">
+                            <div class="label">Subtotal</div>
+                            <div class="value">$ 1621.29</div>
+                        </div>
+                        <div class="row">
+                            <div class="label">Coupon</div>
+                            <div class="value">- $ 77.60</div>
+                        </div>
+                        <div class="row">
+                            <div class="label">Gift Card</div>
+                            <div class="value">- $ 100.00</div>
+                        </div>
+                        <div class="row">
+                            <div class="label">Tax</div>
+                            <div class="value">$ 23.28</div>
+                        </div>
+                        <div class="row">
+                            <div class="label">Estimated shipping</div>
+                            <div class="value">FREE</div>
+                        </div>
+                        <div class="row">
+                            <div class="label">Estimated Total</div>
+                            <div class="value">$ 233.68</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="payment.html" class="btn">CONTINUE TO PAYMENT</a>
+            </div>
         </div>
     </div>
-
-    <div class="footer"
-        style="background-color: #fff; color: #000; text-align: center; padding: 20px 0; font-size: 14px;">
-        <div class="logo" style="font-size: 24px; font-weight: bold; letter-spacing: 5px; margin-bottom: 10px;">VENIA
-        </div>
-        <div class="address" style="margin-bottom: 10px;">© Company Name Address Ave, City Name, State ZIP</div>
-        <div class="links">
-            <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Terms of Use</a>
-            <a href="#" style="color: #000; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
-        </div>
+    <div class="footer">
+        <p>© Company Name Address Ave, City Name, State ZIP</p>
+        <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
     </div>
 
     <script src="assets/scripts/default.js"></script>

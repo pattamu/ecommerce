@@ -4,60 +4,110 @@ body {
     padding: 0;
 }
 
+.checkout-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.checkout-header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.checkout-header hr {
+    width: 50px;
+    border: 2px solid #007bff;
+    margin: 0 auto;
+}
+
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
-    padding: 20px;
     background-color: white;
+    padding: 20px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.container h1::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #007bff;
-    margin: 10px auto;
-}
-
-.shipping-info,
-.pricing-summary {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.shipping-info h2,
-.pricing-summary h2 {
-    margin-top: 0;
-}
-
-.shipping-info .edit {
-    float: right;
-    color: #007bff;
-    cursor: pointer;
-}
-
-.shipping-method {
-    margin-bottom: 20px;
-}
-
-.shipping-method label {
-    display: block;
+.container h2 {
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
-.shipping-method input {
+.container .section {
+    margin-bottom: 20px;
+}
+
+.container .section .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .section .title h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.container .section .title a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.container .section .title a:hover {
+    text-decoration: underline;
+}
+
+.container .section .content {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.container .section .content p {
+    margin: 0;
+}
+
+.container .section .content .radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .section .content .radio-group label {
+    margin-bottom: 10px;
+}
+
+.container .section .content .radio-group input {
     margin-right: 10px;
 }
 
-.btn {
+.container .pricing-summary {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.container .pricing-summary .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.container .pricing-summary .row:last-child {
+    font-weight: bold;
+}
+
+.container .pricing-summary .row .label {
+    font-size: 14px;
+}
+
+.container .pricing-summary .row .value {
+    font-size: 14px;
+}
+
+.container .btn {
     display: block;
     width: 100%;
     padding: 10px;
@@ -66,9 +116,36 @@ body {
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 16px;
     margin-top: 20px;
 }
 
-.btn:hover {
+.container .btn:hover {
     background-color: #0056b3;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container .left,
+.flex-container .right {
+    width: 48%;
 }

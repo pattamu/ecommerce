@@ -2,26 +2,34 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f9fa;
 }
 
 .checkout-container {
     display: flex;
-    max-width: 1000px;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
     padding: 20px;
 }
 
-/* Left section */
-.form-section {
-    flex: 2;
-    margin-right: 20px;
+.form-section,
+.summary-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-section h2 {
-    margin-bottom: 10px;
-    font-size: 24px;
+.form-section {
+    width: 65%;
+}
+
+.summary-section {
+    width: 30%;
+}
+
+.form-section h2,
+.summary-section h2 {
+    margin-top: 0;
 }
 
 .form-group {
@@ -31,63 +39,27 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.contact-info,
-.shipping-info {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 15px;
+    border: 1px solid #ced4da;
     border-radius: 5px;
 }
 
 .btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
     background-color: #007bff;
     color: white;
-    text-align: center;
-    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-/* Right section */
-.summary-section {
-    flex: 1;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-}
-
-.summary-section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.summary-item h3 {
+    cursor: pointer;
+    width: 100%;
     font-size: 16px;
-    font-weight: normal;
 }
 
-.summary-total {
-    font-weight: bold;
-    font-size: 18px;
+.btn:hover {
+    background-color: #0056b3;
 }
