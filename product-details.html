@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/product-details.css">
 </head>
 
@@ -21,13 +22,11 @@
             <a href="electronics.html"> Electronics </a>
             <a href="jewellery.html"> Jewellery </a>
         </div>
-        <a href="cart.html">
-            <div class="cart">
-                <i class="fas fa-shopping-cart">
-                </i>
-                <span class="badge" id="cart-count"> 0 </span>
-            </div>
-        </a>
+        <div class="cart" onclick="navigateToCategoryPage('cart')">
+            <i class="fas fa-shopping-cart">
+            </i>
+            <span class="badge" id="cart-count"> 0 </span>
+        </div>
     </div>
 
     <!-- Product Details Section -->

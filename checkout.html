@@ -19,13 +19,11 @@
             <a href="electronics.html"> Electronics </a>
             <a href="jewellery.html"> Jewellery </a>
         </div>
-        <a href="cart.html">
-            <div class="cart">
-                <i class="fas fa-shopping-cart">
-                </i>
-                <span class="badge" id="cart-count"> 0 </span>
-            </div>
-        </a>
+        <div class="cart" onclick="navigateToCategoryPage('cart')">
+            <i class="fas fa-shopping-cart">
+            </i>
+            <span class="badge" id="cart-count"> 0 </span>
+        </div>
     </div>
     <div class="checkout-container">
         <div class="form-section">
@@ -86,7 +84,7 @@
         </div>
     </div>
 
-    <!-- <script src="assets/scripts/default.js"></script> -->
+    <script src="assets/scripts/default.js"></script>
     <script src="assets/scripts/checkout.js"></script>
 </body>
 

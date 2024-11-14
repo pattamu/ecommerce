@@ -1,11 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll
+}
+
+/* For Webkit-based browsers (e.g., Chrome, Safari) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .navbar {
-    background-color: #0056D2;
+    background-color: #007bff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: fixed; */
-    /* width: 100%; */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar a {
@@ -13,37 +27,61 @@
     text-decoration: none;
     margin: 0 15px;
     font-size: 16px;
+    position: relative;
 }
 
 .navbar a:hover {
-    border-bottom: 2px solid white;
+    color: black;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    bottom: -2px;
+    left: 25%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1);
 }
 
 .navbar .logo {
     font-size: 24px;
     font-weight: bold;
-    color: white;
 }
 
 .navbar .logo:hover {
+    color: #fff;
     cursor: pointer;
 }
 
 .navbar .cart {
     position: relative;
+    cursor: pointer;
 }
 
-.navbar .cart i {
-    font-size: 20px;
+.navbar .cart .fa-shopping-cart {
+    font-size: 24px;
+    transition: transform 0.2s;
+}
+
+.navbar .cart:hover .fa-shopping-cart {
+    color: #fff;
+    transform: scale(1.1);
 }
 
 .navbar .cart .badge {
     position: absolute;
-    top: -5px;
+    top: -10px;
     right: -10px;
-    background-color: #FF0000;
+    background-color: red;
     color: white;
     border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
+    padding: 3px 7px;
+    font-size: 10px;
 }

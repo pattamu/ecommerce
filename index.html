@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <div class="navbar">
         <div class="logo" onclick="navigateToCategoryPage('index')">
             VENIA
@@ -22,14 +23,13 @@
             <a href="electronics.html"> Electronics </a>
             <a href="jewellery.html"> Jewellery </a>
         </div>
-        <a href="cart.html">
-            <div class="cart">
-                <i class="fas fa-shopping-cart">
-                </i>
-                <span class="badge" id="cart-count"> 0 </span>
-            </div>
-        </a>
+        <div class="cart" onclick="navigateToCategoryPage('cart')">
+            <i class="fas fa-shopping-cart">
+            </i>
+            <span class="badge" id="cart-count"> 0 </span>
+        </div>
     </div>
+
     <div class="hero">
         <div class="text">
             <h1>
@@ -51,11 +51,13 @@
                 width="600" />
         </div>
     </div>
+
     <div class="categories">
         <div class="category" onclick="navigateToCategoryPage('women')">
-            <img alt="White t-shirt" style="width: 245px; height: 250px;"
-                src="https://img.freepik.com/premium-photo/portrait-young-happy-smiling-woman-with-shopping-bags-enjoying-shopping-positive-emotions_132024-657.jpg?w=900" />
-            <div class="info">
+            <img alt="Woman holding shopping bags" height="300"
+                src="https://storage.googleapis.com/a1aa/image/5wIwvBZIiSZ0EFHbWU7l4Rvanuegc98owgNfdJfPQAeCmDDPB.jpg"
+                width="300" />
+            <div class="overlay">
                 <h3>
                     Shop Women
                 </h3>
@@ -65,9 +67,10 @@
             </div>
         </div>
         <div class="category" onclick="navigateToCategoryPage('men')">
-            <img alt="Brown jacket" style="width: 245px; height: 250px;"
-                src="https://storage.googleapis.com/a1aa/image/koyPMnAKX0IJPp8juc3eWeJ0FTtNXbbyYpsg3ej5tFKfciAPB.jpg" />
-            <div class="info">
+            <img alt="Man in a brown jacket" height="300"
+                src="https://storage.googleapis.com/a1aa/image/gbiPtQrEuVZWCN2y3l6CtKXlEW5qyAUM8Ig1ykOXrgHZOM8E.jpg"
+                width="300" />
+            <div class="overlay">
                 <h3>
                     Shop Men
                 </h3>
@@ -77,9 +80,10 @@
             </div>
         </div>
         <div class="category" onclick="navigateToCategoryPage('jewellery')">
-            <img alt="Diamond ring" style="width: 245px; height: 250px;"
-                src="https://storage.googleapis.com/a1aa/image/VNmdeX1kNfsHm0OMAKCZe74cjDmGGjoy2Vd7JcG5EVvTORgnA.jpg" />
-            <div class="info">
+            <img alt="Hand with a diamond ring" height="300"
+                src="https://storage.googleapis.com/a1aa/image/kEQgXrLqayLvHVgj5mCi44LetujiL1yWwT7yguHmzyLxcY4JA.jpg"
+                width="300" />
+            <div class="overlay">
                 <h3>
                     Jewellery
                 </h3>
@@ -89,9 +93,10 @@
             </div>
         </div>
         <div class="category" onclick="navigateToCategoryPage('electronics')">
-            <img alt="Gaming monitor" style="width: 245px; height: 250px;"
-                src="https://storage.googleapis.com/a1aa/image/9Og5OwAc11aGJJbJ65cgeaZ31f1cS8LklDLAxW7rDZXNnIwTA.jpg" />
-            <div class="info">
+            <img alt="Electronics with a vibrant display" height="300"
+                src="https://storage.googleapis.com/a1aa/image/HDw8qFiPOO6lGdICrXpC1w5EtSkw2R4IwSv1TMbH9yoXOM8E.jpg"
+                width="300" />
+            <div class="overlay">
                 <h3>
                     Electronics
                 </h3>
